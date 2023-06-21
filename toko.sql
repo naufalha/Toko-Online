@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 21, 2023 at 10:05 AM
+-- Generation Time: Jun 21, 2023 at 03:53 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -32,8 +32,17 @@ CREATE TABLE `barang` (
   `login_id` int(10) UNSIGNED NOT NULL,
   `nama` varchar(20) DEFAULT NULL,
   `harga` int(10) UNSIGNED DEFAULT NULL,
-  `foto` text DEFAULT NULL
+  `foto` text DEFAULT NULL,
+  `deskripsi` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `barang`
+--
+
+INSERT INTO `barang` (`idbarang`, `login_id`, `nama`, `harga`, `foto`, `deskripsi`) VALUES
+(12, 3, 'nahida ', 500, 'GenshinImpact_Nahida_CloseUp-1024x576-1.png', 'nahida dah tua'),
+(13, 3, 'redbull', 20000, 'red-bull-rb16b1.jpg', 'brberberberbrebbb bletak bletak duarrr');
 
 -- --------------------------------------------------------
 
@@ -84,7 +93,7 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT for table `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `idbarang` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `idbarang` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `login`
