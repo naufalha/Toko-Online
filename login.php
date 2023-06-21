@@ -16,6 +16,7 @@
             // berhasil login
             $_SESSION['username'] = $row['username'];
             $_SESSION['kategori'] = $row['kategori'];
+            $_SESSION['id'] = $row['id'];
 ?>  
             <script language script="Javascript">
                 alert('Anda Login Sebagai <?php echo $row['username']; ?>');
