@@ -28,7 +28,7 @@ $lokasi_gambar = '' . $gambar_nama;
 // Pindahkan file gambar ke lokasi penyimpanan
 if (move_uploaded_file($gambar_tmp, $lokasi_gambar)) {
     // Ubah format lokasi gambar menjadi URL atau link gambar
-    $gambar_link = 'http://localhost/' . $lokasi_gambar;
+    $gambar_link = '' . $lokasi_gambar;
 
     // Query untuk melakukan insert data barang
     $query = "INSERT INTO barang (login_id, nama, harga, foto,deskripsi) VALUES ('$id', '$nama', '$harga', '$gambar_link','$deskripsi')";
