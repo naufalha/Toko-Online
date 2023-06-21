@@ -21,12 +21,12 @@ if ($result) {
     while($row = mysqli_fetch_assoc($result)) {
         echo "<img  src=".$row["foto"]."><br>";
         echo "id: " . $row["login_id"]. " - Name: " . $row["nama"]. " " . $row["harga"]. "<br>";
-       
+        echo "<a href='barang.php?idbarang=".$row['idbarang']."'>Beli</a> <br>";
     }
 } else {
     echo "0 results";
 }
-
+mysqli_close($koneksi);
 ?>
 
 Silahkan Logout dengan klik link <a href="logout.php">Disini</a>
