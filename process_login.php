@@ -8,7 +8,14 @@ if(isset($_POST['login'])){
     // Lakukan validasi login
     // Misalnya, periksa username dan password dalam database
 
-    if($username === 'admin' && $password === 'admin123'){
+    $koneksi = mysqli_connect("localhost", "root", "", "toko");
+
+    // Query untuk memeriksa kecocokan username dan password dalam database
+    $query = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
+    $result = mysqli_query($koneksi, $query);
+    
+
+    if(mysqli_num_rows($result) == 1){
         // Jika login berhasil, simpan username dalam session
         $_SESSION['username'] = $username;
 
