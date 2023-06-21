@@ -1,4 +1,5 @@
 <?php
+session_start();
 // Koneksi ke database
 $koneksi = mysqli_connect("localhost", "root", "", "toko");
 
@@ -12,24 +13,25 @@ if (mysqli_connect_errno()) {
 $nama = $_POST['nama'];
 $harga = $_POST['harga'];
 $deskripsi = $_POST['deskripsi'];
-$gambar = $_POST['gambar'];
-$userid = $_POST['userid'];
+$gambar = $_FILES['gambar'];
+$id = $_SESSION['id'];
 
 // Mengambil informasi file gambar
+
 $gambar = $_FILES['gambar'];
 $gambar_nama = $gambar['name'];
 $gambar_tmp = $gambar['tmp_name'];
 
 // Tentukan lokasi penyimpanan file gambar
-$lokasi_gambar = 'uploads/' . $gambar_nama;
+$lokasi_gambar = '' . $gambar_nama;
 
 // Pindahkan file gambar ke lokasi penyimpanan
 if (move_uploaded_file($gambar_tmp, $lokasi_gambar)) {
     // Ubah format lokasi gambar menjadi URL atau link gambar
-    $gambar_link = 'http://example.com/' . $lokasi_gambar;
+    $gambar_link = 'http://localhost/' . $lokasi_gambar;
 
     // Query untuk melakukan insert data barang
-    $query = "INSERT INTO barang (nama, harga, deskripsi, gambar) VALUES ('$nama', '$harga', '$deskripsi', '$gambar_link')";
+    $query = "INSERT INTO barang (login_id, nama, harga, foto,deskripsi) VALUES ('$id', '$nama', '$harga', '$gambar_link','$deskripsi')";
 
     // Jalankan query
     if (mysqli_query($koneksi, $query)) {

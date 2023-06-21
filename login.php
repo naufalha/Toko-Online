@@ -14,6 +14,7 @@
 
         if($row['username']!=""){
             // berhasil login
+            
             $_SESSION['username'] = $row['username'];
             $_SESSION['kategori'] = $row['kategori'];
             $_SESSION['id'] = $row['id'];

@@ -2,6 +2,8 @@
 <html>
 <head>
     <title>Form Upload Barang</title>
+
+    
 </head>
 <body>
     <h2>Form Upload Barang</h2>
@@ -17,6 +19,7 @@
 
         <label for="gambar">Gambar Barang:</label>
         <input type="file" name="gambar" id="gambar" required><br><br>
+
         
 
         <input type="submit" value="Upload">
