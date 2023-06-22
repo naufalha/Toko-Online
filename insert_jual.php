@@ -23,7 +23,7 @@ $gambar_nama = $gambar['name'];
 $gambar_tmp = $gambar['tmp_name'];
 
 // Tentukan lokasi penyimpanan file gambar
-$lokasi_gambar = '' . $gambar_nama;
+$lokasi_gambar = 'foto_barang/' . $gambar_nama;
 
 // Pindahkan file gambar ke lokasi penyimpanan
 if (move_uploaded_file($gambar_tmp, $lokasi_gambar)) {
