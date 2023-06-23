@@ -1,6 +1,3 @@
-## Tampilan Barang yang dijual oleh user
-## dalam file ini hanya menampilkan barang yang dijual oleh user yang sedang login
-## user dapat menghapus barangnya sendiri
 
 <html>
 <head>
@@ -25,12 +22,33 @@ if ($result) {
     // output data of each row
     while($row = mysqli_fetch_assoc($result)) {
         echo "<img  src=".$row["foto"]."><br>";
-        echo "id: " . $row["login_id"]. " - Name: " . $row["nama"]. " " . $row["harga"]. "<br>";
+        echo "id barang: " . $row["idbarang"]. " - Name: " . $row["nama"]. " " . $row["harga"]. "<br>";
         echo "<a href='barang.php?idbarang=".$row['idbarang']."'>Beli</a> <br>";
+        echo "<form method='post'>";
+        echo "<input type='hidden' name='record_id' value='".$row['idbarang']."'>";
+        echo "<input type='submit' name='delete' value='Delete'>";
+        echo "</form>";
     }
 } else {
     echo "0 results";
 }
+
+if(isset($_POST['delete'])){
+    $sql = "DELETE FROM barang WHERE idbarang = '".$_POST['record_id']."'";
+    $result = mysqli_query($koneksi, $sql);
+    if ($result) {
+        echo "Record deleted successfully";
+    } else {
+        echo "Error deleting record: " . mysqli_error($koneksi);
+    }
+}
+
+
+
+
+
+
+
 mysqli_close($koneksi);
 ?>    
 </body>
