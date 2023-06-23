@@ -1,11 +1,15 @@
-<?php 
-    session_start();
-    echo "Anda Berhasil Login Sebagai ".$_SESSION['username']." Dan Anda Terdaftar Sebagai ".$_SESSION['id'],$_SESSION['kategori'];
-?>
-<br>
-<h3><a href="jual.php">jual barang</a> <a href="user_barang.php">barang saya</a></h3>
+## Tampilan Barang yang dijual oleh user
+## dalam file ini hanya menampilkan barang yang dijual oleh user yang sedang login
+## user dapat menghapus barangnya sendiri
 
+<html>
+<head>
+<title>Toko-Online</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+</head>
 
+<body>
 <?php
 $koneksi = mysqli_connect("localhost", "root", "", "toko");
 
@@ -14,8 +18,8 @@ if (mysqli_connect_errno()) {
     echo "Koneksi database gagal: " . mysqli_connect_error();
     exit;
 }
-
-$sql = "SELECT * FROM barang";
+session_start();
+$sql = "SELECT * FROM barang where login_id = '".$_SESSION['id']."'";
 $result = mysqli_query($koneksi, $sql);
 if ($result) {
     // output data of each row
@@ -28,6 +32,6 @@ if ($result) {
     echo "0 results";
 }
 mysqli_close($koneksi);
-?>
-
-Silahkan Logout dengan klik link <a href="logout.php">Disini</a>
+?>    
+</body>
+</html>
