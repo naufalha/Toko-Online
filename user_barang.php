@@ -28,6 +28,12 @@ if ($result) {
         echo "<input type='hidden' name='record_id' value='".$row['idbarang']."'>";
         echo "<input type='submit' name='delete' value='Delete'>";
         echo "</form>";
+        echo "<br>";
+        echo "<form method='post'>";
+        echo "<input type=text name='harga' value='".$row['harga']."'>";
+        echo "input type='submit' name='update' value='Update'>";
+        echo "</form>";
+        
     }
 } else {
     echo "0 results";
@@ -43,6 +49,15 @@ if(isset($_POST['delete'])){
     }
 }
 
+if(isset($_POST['update'])){
+    $sql = "UPDATE barang SET harga = '".$_POST['harga']."' WHERE idbarang = '".$_POST['record_id']."'";
+    $result = mysqli_query($koneksi, $sql);
+    if ($result) {
+        echo "Record updated successfully";
+    } else {
+        echo "Error updating record: " . mysqli_error($koneksi);
+    }
+}
 
 
 
