@@ -15,15 +15,15 @@ $harga = $_POST['harga'];
 $deskripsi = $_POST['deskripsi'];
 $gambar = $_FILES['gambar'];
 $id = $_SESSION['id'];
-
+$random_name = rand(1000,1000000)."-".$_FILES['gambar']['name'];
 // Mengambil informasi file gambar
 
 $gambar = $_FILES['gambar'];
-$gambar_nama = $gambar['name'];
+$gambar_nama = $random_name;
 $gambar_tmp = $gambar['tmp_name'];
 
 // Tentukan lokasi penyimpanan file gambar
-$lokasi_gambar = 'foto_barang/' . $gambar_nama;
+$lokasi_gambar = 'foto_barang/' . $random_name;
 
 // Pindahkan file gambar ke lokasi penyimpanan
 if (move_uploaded_file($gambar_tmp, $lokasi_gambar)) {
