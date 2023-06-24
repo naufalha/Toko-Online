@@ -43,10 +43,11 @@ if(isset($_POST['register'])){
 
         // Jalankan query
         mysqli_query($koneksi, $query);
+        header("Location: hasilregister.php");
 
         // Tampilkan pesan sukses atau arahkan ke halaman login
-        echo "Registrasi berhasil!";
-        header("Location: login.php");
+
+    
         exit;
     }
 }
