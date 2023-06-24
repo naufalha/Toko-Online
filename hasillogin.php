@@ -3,7 +3,8 @@
     echo "Anda Berhasil Login Sebagai ".$_SESSION['username']." Dan Anda Terdaftar Sebagai ".$_SESSION['id'],$_SESSION['kategori'];
 ?>
 <br>
-<h3><a href="jual.php">jual barang</a></h3>
+<h3><a href="jual.php">jual barang</a> <a href="user_barang.php">barang saya</a></h3>
+
 
 <?php
 $koneksi = mysqli_connect("localhost", "root", "", "toko");
