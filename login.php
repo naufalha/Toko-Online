@@ -35,10 +35,42 @@
         }
     }
 ?>
-<form action="login.php" method="post">
+<!-- <form action="login.php" method="post">
     <p align='center'>
         Username : <input type="text" name="username"> <br>
         Password : <input type="password" name="password"> <br>
         <input type="submit" name="submit">
     </p>
-</form>
+</form> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Halaman Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h2 class="text-center">Login</h2>
+                <form action="login.php" method="post">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" name="username" id="username" placeholder="Masukkan username">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" name="password" id="password" placeholder="Masukkan password">
+                    </div>
+                    <input type="submit" name="submit" class="btn btn-primary"></input>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
