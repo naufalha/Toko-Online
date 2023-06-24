@@ -20,6 +20,7 @@
           </div>
         </nav>
         <a class="lomgin2" href="logout.php">Logout</a> <a class="lomgin2" href="register.php">Register</a>
+        <a class="lomgin2" href="keranjang.php">keranjang</a>
       </header>
 
 
@@ -42,8 +43,25 @@ if (mysqli_connect_errno()) {
     exit;
 }
 
+
+
+
+
+
 $sql = "SELECT * FROM barang";
 $result = mysqli_query($koneksi, $sql);
+
+if (isset($_POST['submit'])) {
+    $insertkeranjang = "INSERT INTO keranjang (id, idbarang, jumlah) VALUES ('".$_POST['iduser']."', '".$_POST['idbarang']."', '".$_POST['jumlah']."')";
+    $kontol = mysqli_query($koneksi, $insertkeranjang);
+    echo $insertkeranjang;
+    if ($kontol) {
+        echo "New record created successfully";
+    } else {
+        echo "Error: " . $insertkeranjang . "<br>" . mysqli_error($koneksi);
+    }
+}
+
 if ($result) {
     // output data of each row
     while($row = mysqli_fetch_assoc($result)) {
@@ -54,6 +72,14 @@ if ($result) {
         echo '<h5 class="card-title">' . $row["nama"] . '</h5>';
         echo '<p class="card-text">Harga: ' . $row["harga"] . '</p>';
         echo '<a href="barang.php?idbarang=' . $row['idbarang'] . '" class="btn btn-primary">Beli</a>';
+        echo '<div class="container">';
+        echo '<form action="hasillogin.php" method="post">';
+        echo '<input type="hidden" name="idbarang" value="'.$row['idbarang'].'">';
+        echo '<input type="hidden" name="iduser" value="'.$_SESSION['id'].'">';
+        echo '<input class="form-control" type="number" max="99" name="jumlah" value="1">';
+        echo '<input type="submit" name = "submit" value="keranjang">';
+        echo '</form>';
+        echo '</div>';
         echo '</div>';
         echo '</div>';
         echo '</div>';
