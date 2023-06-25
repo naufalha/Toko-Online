@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 21, 2023 at 03:53 PM
+-- Generation Time: Jun 25, 2023 at 04:23 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -33,7 +33,7 @@ CREATE TABLE `barang` (
   `nama` varchar(20) DEFAULT NULL,
   `harga` int(10) UNSIGNED DEFAULT NULL,
   `foto` text DEFAULT NULL,
-  `deskripsi` text NOT NULL
+  `deskripsi` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -41,8 +41,31 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`idbarang`, `login_id`, `nama`, `harga`, `foto`, `deskripsi`) VALUES
-(12, 3, 'nahida ', 500, 'GenshinImpact_Nahida_CloseUp-1024x576-1.png', 'nahida dah tua'),
-(13, 3, 'redbull', 20000, 'red-bull-rb16b1.jpg', 'brberberberbrebbb bletak bletak duarrr');
+(1, 1, 'sebasitaon vettel', 213, 'foto_barang/477023-download (1).jpg', 'sdfadfa'),
+(2, 1, 'Maulana Fred', 9000, 'foto_barang/959216-WhatsApp Image 2023-06-23 at 12.41.29 PM.jpeg', 'warga porwo dadi asli');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `keranjang`
+--
+
+CREATE TABLE `keranjang` (
+  `id_keranjang` int(10) UNSIGNED NOT NULL,
+  `idbarang` int(10) UNSIGNED NOT NULL,
+  `id` int(10) UNSIGNED NOT NULL,
+  `jumlah` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `keranjang`
+--
+
+INSERT INTO `keranjang` (`id_keranjang`, `idbarang`, `id`, `jumlah`) VALUES
+(22, 1, 1, 1),
+(23, 1, 1, 2),
+(24, 1, 2, 6),
+(25, 2, 2, 6);
 
 -- --------------------------------------------------------
 
@@ -53,18 +76,21 @@ INSERT INTO `barang` (`idbarang`, `login_id`, `nama`, `harga`, `foto`, `deskrips
 CREATE TABLE `login` (
   `id` int(10) UNSIGNED NOT NULL,
   `username` varchar(20) DEFAULT NULL,
-  `email` varchar(20) NOT NULL,
-  `password` varchar(20) NOT NULL,
-  `kategori` varchar(10) DEFAULT 'user'
+  `email` varchar(20) DEFAULT NULL,
+  `password` varchar(20) DEFAULT NULL,
+  `kategori` varchar(10) DEFAULT NULL,
+  `alamat` text NOT NULL,
+  `hp` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `login`
 --
 
-INSERT INTO `login` (`id`, `username`, `email`, `password`, `kategori`) VALUES
-(1, 'Ricardo', 'Ricardo@gmail.com', '123', 'user'),
-(3, 'nopal', 'nopal@gmail.com', '123', 'user');
+INSERT INTO `login` (`id`, `username`, `email`, `password`, `kategori`, `alamat`, `hp`) VALUES
+(1, 'Ricardo', 'Ricardo@gmail.com', '123', NULL, '', 0),
+(2, 'nopal', 'naufalhanief48@gmail', '123', NULL, '', 0),
+(3, 'maulana', 'maulana@gmail.com', '123', NULL, 'purwodadi', 123);
 
 --
 -- Indexes for dumped tables
@@ -75,15 +101,21 @@ INSERT INTO `login` (`id`, `username`, `email`, `password`, `kategori`) VALUES
 --
 ALTER TABLE `barang`
   ADD PRIMARY KEY (`idbarang`),
-  ADD KEY `barang_FKIndex1` (`login_id`);
+  ADD KEY `id` (`login_id`);
+
+--
+-- Indexes for table `keranjang`
+--
+ALTER TABLE `keranjang`
+  ADD PRIMARY KEY (`id_keranjang`),
+  ADD KEY `id` (`id`),
+  ADD KEY `idbarang` (`idbarang`);
 
 --
 -- Indexes for table `login`
 --
 ALTER TABLE `login`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `email` (`email`),
-  ADD UNIQUE KEY `username` (`username`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -93,7 +125,13 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT for table `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `idbarang` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `idbarang` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `keranjang`
+--
+ALTER TABLE `keranjang`
+  MODIFY `id_keranjang` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `login`
@@ -110,13 +148,15 @@ ALTER TABLE `login`
 --
 ALTER TABLE `barang`
   ADD CONSTRAINT `barang_ibfk_1` FOREIGN KEY (`login_id`) REFERENCES `login` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `keranjang`
+--
+ALTER TABLE `keranjang`
+  ADD CONSTRAINT `keranjang_ibfk_1` FOREIGN KEY (`id`) REFERENCES `login` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `keranjang_ibfk_2` FOREIGN KEY (`idbarang`) REFERENCES `barang` (`idbarang`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-SELECT barang.nama as 'nama', barang.harga as 'harga', barang.foto as 'foto', keranjang.jumlah as 'jumlah' FROM barang JOIN keranjang ON barang.idbarang = keranjang.idbarang WHERE keranjang.id = 1
-```
-SELECT * FROM keranjang WHERE id = 1
-```

@@ -15,6 +15,13 @@
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required><br><br>
 
+        <label for="hp">No telepon:</label>
+        <input type="number" id="hp" name="hp" required><br><br>
+
+        <label for="alamat">Alamat:</label>
+        <textarea id="alamat" name="alamat" required></textarea><br><br>
+
+
         <input type="submit" name="register" value="Register">
     </form>
 </body>
@@ -28,7 +35,8 @@ if(isset($_POST['register'])){
     $username = $_POST['username'];
     $password = $_POST['password'];
     $email = $_POST['email'];
-
+    $hp = $_POST['hp'];
+    $alamat = $_POST['alamat'];
     // Lakukan validasi data yang diterima
     if(empty($username) || empty($password) || empty($email)){
         echo "Harap isi semua field.";
@@ -39,7 +47,7 @@ if(isset($_POST['register'])){
         $koneksi = mysqli_connect("localhost", "root", "", "toko");
 
         // Query untuk memasukkan data pengguna ke dalam tabel
-        $query = "INSERT INTO login (username, password, email) VALUES ('$username', '$password', '$email')";
+        $query = "INSERT INTO login (username, password, email,alamat,hp) VALUES ('$username', '$password', '$email','$alamat','$hp')";
 
         // Jalankan query
         mysqli_query($koneksi, $query);
