@@ -1,3 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Upload Barang</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+       /* CSS untuk tampilan pesan sukses */
+        .message.success {
+            background-color: white;
+            color: black;
+            padding: 10px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        /* CSS untuk tampilan pesan error */
+        .message.error {
+            background-color: white;
+            color: black;
+            padding: 10px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        /* CSS untuk tombol kembali */
+        .btn-kembali {
+            background-color:#1E90FF;
+            color: white;
+            padding: 10px 16px;
+            border: 2px solid #007bff;
+            border-radius: 4px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+    </style>
+</head>
+<body>
+</body>
+</html>
+
+
+
 <?php
 session_start();
 // Koneksi ke database
@@ -35,10 +90,18 @@ if (move_uploaded_file($gambar_tmp, $lokasi_gambar)) {
 
     // Jalankan query
     if (mysqli_query($koneksi, $query)) {
-        echo "Data barang berhasil diupload.";
+        // Tampilkan pesan sukses
+        echo '<div class="message success">';
+        echo "<h2>Data barang berhasil diupload.</h2>";
+        echo '<a href="index.php" class="btn-kembali">Kembali ke Halaman Home</a>';
+        echo '</div>';
     } else {
+        // Tampilkan pesan error
+        echo '<div class="message error">';
         echo "Error: " . $query . "<br>" . mysqli_error($koneksi);
+        echo '</div>';
     }
+    
 } else {
     echo "Upload gambar gagal.";
 }
