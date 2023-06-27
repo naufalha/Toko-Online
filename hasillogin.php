@@ -48,7 +48,7 @@ if (mysqli_connect_errno()) {
 
 
 
-$sql = "SELECT * FROM barang";
+$sql = "SELECT * FROM barang WHERE login_id != '".$_SESSION['id']."'";
 $result = mysqli_query($koneksi, $sql);
 
 if (isset($_POST['submit'])) {
