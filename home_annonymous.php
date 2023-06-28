@@ -107,7 +107,9 @@ mysqli_close($koneksi);*/
 <div class="container text-center">
   <div class="row">
     <?php
-    $koneksi = mysqli_connect("localhost", "root", "", "toko");
+    
+    require_once "koneksi.php";
+    
 
     // Periksa koneksi
     if (mysqli_connect_errno()) {
@@ -116,7 +118,7 @@ mysqli_close($koneksi);*/
     }
 
     $sql = "SELECT * FROM barang";
-    $result = mysqli_query($koneksi, $sql);
+    $result = mysqli_query($conn, $sql);
     if ($result) {
       // Output data of each row
       while ($row = mysqli_fetch_assoc($result)) {
