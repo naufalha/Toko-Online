@@ -23,7 +23,7 @@ header {
   
 
   .lomgin {
-    margin-left: 1450px;
+    margin-left: 1000px;
     display: inline-block;
     background-color: #009982;
     color: #fff;
@@ -150,4 +150,16 @@ img {vertical-align: middle;}
   .footer-links li a {
     color: #fff;
     text-decoration: none;
+  }
+
+  .mySlides fade{
+    padding-bottom: 20px;
+  }
+
+  .mySlides.fade {
+    margin-bottom: 20px;
+  }
+  
+  .container.text-center {
+    margin-top: 20px;
   }

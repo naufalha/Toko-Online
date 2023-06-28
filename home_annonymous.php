@@ -43,6 +43,41 @@
   <div class="text">Caption Three</div>
 </div>
 
+<div class="container text-center">
+  <div class="row">
+    <?php
+    $koneksi = mysqli_connect("localhost", "root", "", "toko");
+
+    // Periksa koneksi
+    if (mysqli_connect_errno()) {
+      echo "Koneksi database gagal: " . mysqli_connect_error();
+      exit;
+    }
+
+    $sql = "SELECT * FROM barang";
+    $result = mysqli_query($koneksi, $sql);
+    if ($result) {
+      // Output data of each row
+      while ($row = mysqli_fetch_assoc($result)) {
+        echo '<div class="col">';
+        echo '<div class="card" style="width: 18rem;">';
+        echo '<img width="200" height="150" src="' . $row["foto"] . '" class="card-img-top" alt="...">';
+        echo '<div class="card-body">';
+        echo '<h5 class="card-title">' . $row["nama"] . '</h5>';
+        echo '<p class="card-text">Harga: ' . $row["harga"] . '</p>';
+        echo '<a href="barang.php?idbarang=' . $row['idbarang'] . '" class="btn btn-primary">Beli</a>';
+        echo '</div>';
+        echo '</div>';
+        echo '</div>';
+      }
+    } else {
+      echo "0 results";
+    }
+    mysqli_close($koneksi);
+    ?>
+  </div>
+</div>
+
 </div>
 <br>
 
@@ -104,40 +139,7 @@ mysqli_close($koneksi);*/
 ?>
 </div> -->
 
-<div class="container text-center">
-  <div class="row">
-    <?php
-    $koneksi = mysqli_connect("localhost", "root", "", "toko");
 
-    // Periksa koneksi
-    if (mysqli_connect_errno()) {
-      echo "Koneksi database gagal: " . mysqli_connect_error();
-      exit;
-    }
-
-    $sql = "SELECT * FROM barang";
-    $result = mysqli_query($koneksi, $sql);
-    if ($result) {
-      // Output data of each row
-      while ($row = mysqli_fetch_assoc($result)) {
-        echo '<div class="col">';
-        echo '<div class="card" style="width: 18rem;">';
-        echo '<img width="200" height="150" src="' . $row["foto"] . '" class="card-img-top" alt="...">';
-        echo '<div class="card-body">';
-        echo '<h5 class="card-title">' . $row["nama"] . '</h5>';
-        echo '<p class="card-text">Harga: ' . $row["harga"] . '</p>';
-        echo '<a href="barang.php?idbarang=' . $row['idbarang'] . '" class="btn btn-primary">Beli</a>';
-        echo '</div>';
-        echo '</div>';
-        echo '</div>';
-      }
-    } else {
-      echo "0 results";
-    }
-    mysqli_close($koneksi);
-    ?>
-  </div>
-</div>
 
 
 
