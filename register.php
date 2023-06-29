@@ -54,11 +54,11 @@
       </header>
     <h2>Registrasi Pengguna</h2>
     <form method="POST" action="register.php">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
+        <label for="nama">Nama:</label>
+        <input type="text" id="nama" name="nama" required>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
+        <label for="pass">Password:</label>
+        <input type="pass" id="pass" name="pass" required>
 
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required>
@@ -68,6 +68,12 @@
 
         <label for="alamat">Alamat:</label>
         <textarea id="alamat" name="alamat" required></textarea>
+
+        <label for="bank">Bank</label>
+        <textarea id="bank" name="bank" required></textarea>
+
+        <label for="rekening">Rekening</label>
+        <textarea id="rekening" name="rekening" required></textarea>
 
         <input type="submit" name="register" value="Register">
     </form>
@@ -87,23 +93,25 @@
 <?php
 if(isset($_POST['register'])){
     // Ambil nilai dari input field
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    $nama = $_POST['nama'];
+    $pass = $_POST['pass'];
     $email = $_POST['email'];
     $hp = $_POST['hp'];
     $alamat = $_POST['alamat'];
+    $bank = $_POST['bank'];
+    $rekening = $_POST['rekening'];
     // Lakukan validasi data yang diterima
-    if(empty($username) || empty($password) || empty($email)){
+    if(empty($nama) || empty($pass) || empty($email)){
         echo "Harap isi semua field.";
     } else {
         // Lakukan penyimpanan data ke dalam database
         // Lakukan koneksi ke database
 
-        $koneksi = mysqli_connect("localhost", "root", "", "toko");
+        require_once "koneksi.php";
 
         // Query untuk memasukkan data pengguna ke dalam tabel
-        $query = "INSERT INTO login (username, password, email,alamat,hp) VALUES ('$username', '$password', '$email','$alamat','$hp')";
-
+        $query = "INSERT INTO login ( `username`, `email`, `password`, `alamat`, `rekening`, `bank`, `hp`) VALUES ('$nama', '$email', '$pass', '$alamat', '$rekening', '$bank', '$hp');";
+        echo $query;
         // Jalankan query
         mysqli_query($koneksi, $query);
         header("Location: hasilregister.php");

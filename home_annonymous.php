@@ -118,7 +118,7 @@ mysqli_close($koneksi);*/
     }
 
     $sql = "SELECT * FROM barang";
-    $result = mysqli_query($conn, $sql);
+    $result = mysqli_query($koneksi, $sql);
     if ($result) {
       // Output data of each row
       while ($row = mysqli_fetch_assoc($result)) {
@@ -145,9 +145,10 @@ mysqli_close($koneksi);*/
 
 
 
-<footer class="footer fixed-bottom">
-    <div class="footer-content">
-      <p>Hak Cipta &copy; 2023 Namfra</p>
+
+  <footer class="footer bg-dark text-light">
+    <div class="container">
+    <p>Hak Cipta &copy; 2023 Namfra</p>
       <ul class="footer-links">
         <li><a href="#">Tentang Kami</a></li>
         <li><a href="#">Syarat dan Ketentuan</a></li>
@@ -155,6 +156,7 @@ mysqli_close($koneksi);*/
       </ul>
     </div>
   </footer>
+
   
 </body>
 </html> 

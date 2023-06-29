@@ -2,16 +2,11 @@
 
 
 
-$koneksi = mysqli_connect("localhost", "root", "", "toko");
-
-// Periksa koneksi
-if (mysqli_connect_errno()) {
-    echo "Koneksi database gagal: " . mysqli_connect_error();
-    exit;
-}
+require_once "koneksi.php";
 session_start();
 $sql = "SELECT barang.nama as 'nama', barang.harga as 'harga', barang.foto as 'foto', keranjang.jumlah as 'jumlah' FROM barang JOIN keranjang ON barang.idbarang = keranjang.idbarang WHERE keranjang.id = '".$_SESSION['id']."'";
 $result = mysqli_query($koneksi, $sql);
+$penjual = "";
 $jumlah;
 global $total;
 if ($result) {

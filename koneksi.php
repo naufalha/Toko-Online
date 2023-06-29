@@ -2,14 +2,14 @@
 
 $servername = "localhost";  // Replace with your database server name
 $username = "root";  // Replace with your database username
-$password = "1";  // Replace with your database password
+$password = "";  // Replace with your database password
 $database = "toko";  // Replace with your database name
 
 // Create a connection
-$conn = mysqli_connect($servername, $username, $password, $database);
+$koneksi = mysqli_connect($servername, $username, $password, $database);
 
 // Check the connection
-if (!$conn) {
+if (!$koneksi) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
