@@ -8,7 +8,7 @@ if(isset($_POST['login'])){
     // Lakukan validasi login
     // Misalnya, periksa username dan password dalam database
 
-    $koneksi = mysqli_connect("localhost", "root", "", "toko");
+    require_once("koneksi.php");
 
     // Query untuk memeriksa kecocokan username dan password dalam database
     $query = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";

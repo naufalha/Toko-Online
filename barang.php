@@ -1,12 +1,6 @@
 <?php
 $idbarang = $_GET['idbarang'];
-$koneksi = mysqli_connect("localhost", "root", "", "toko");
-
-// Periksa koneksi
-if (mysqli_connect_errno()) {
-    echo "Koneksi database gagal: " . mysqli_connect_error();
-    exit;
-}
+require_once "koneksi.php";
 
 $sql = "SELECT * FROM barang where idbarang = $idbarang";
 $result = mysqli_query($koneksi, $sql);

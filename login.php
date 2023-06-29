@@ -1,7 +1,7 @@
 <?php 
     session_start();
     error_reporting(E_ALL & E_NOTICE & E_DEPRECATED);
-    $conn = mysqli_connect('localhost','root','','toko');
+    include "koneksi.php";
 
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -9,7 +9,7 @@
 
     if($submit) {
         $sql = "SELECT * FROM login WHERE username='$username' AND password='$password'";
-        $query = mysqli_query($conn, $sql);
+        $query = mysqli_query($koneksi, $sql);
         $row = mysqli_fetch_array($query);
 
         if($row['username']!=""){

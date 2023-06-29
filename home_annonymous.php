@@ -107,7 +107,9 @@ mysqli_close($koneksi);*/
 <div class="container text-center">
   <div class="row">
     <?php
-    $koneksi = mysqli_connect("localhost", "root", "", "toko");
+    
+    require_once "koneksi.php";
+    
 
     // Periksa koneksi
     if (mysqli_connect_errno()) {
@@ -143,9 +145,10 @@ mysqli_close($koneksi);*/
 
 
 
-<footer class="footer fixed-bottom">
-    <div class="footer-content">
-      <p>Hak Cipta &copy; 2023 Namfra</p>
+
+  <footer class="footer bg-dark text-light">
+    <div class="container">
+    <p>Hak Cipta &copy; 2023 Namfra</p>
       <ul class="footer-links">
         <li><a href="#">Tentang Kami</a></li>
         <li><a href="#">Syarat dan Ketentuan</a></li>
@@ -153,6 +156,7 @@ mysqli_close($koneksi);*/
       </ul>
     </div>
   </footer>
+
   
 </body>
 </html> 
