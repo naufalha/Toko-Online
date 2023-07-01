@@ -19,6 +19,7 @@
             <img src="logo.png" alt="Tokopedia Logo">
           </div>
         </nav>
+        <a class="lomgin2" href="penjualan.php">Barang Terjual</a> 
         <a class="lomgin2" href="logout.php">Logout</a> <a class="lomgin2" href="register.php">Register</a>
         <a class="lomgin2" href="keranjang.php">keranjang</a>
       </header>

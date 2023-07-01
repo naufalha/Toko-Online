@@ -120,3 +120,11 @@ SELECT barang.nama as 'nama', barang.harga as 'harga', barang.foto as 'foto', ke
 ```
 SELECT * FROM keranjang WHERE id = 1
 ```
+query mencari barang terbayar
+SELECT login.username as 'pembeli',login.alamat as 'alamat', barang.nama as 'barang', barang.harga as 'harga', keranjang.jumlah as 'jumlah',transaksi.bukti_bayar as 'bukti' 
+FROM login JOIN barang ON login.id = barang.login_id JOIN keranjang ON barang.idbarang = keranjang.idbarang JOIN transaksi ON keranjang.id_keranjang = transaksi.id_keranjang WHERE keranjang.terbayar = 1 AND barang.login_id = 1
+```
+```
+```
+```
+```
