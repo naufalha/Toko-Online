@@ -4,7 +4,9 @@
 
 require_once "koneksi.php";
 session_start();
-$sql = "SELECT barang.nama as 'nama', barang.harga as 'harga', barang.foto as 'foto', keranjang.jumlah as 'jumlah' FROM barang JOIN keranjang ON barang.idbarang = keranjang.idbarang WHERE keranjang.id = '".$_SESSION['id']."'";
+$sql = "SELECT keranjang.id_keranjang as 'id_keranjang',login.bank as 'bank',login.username as 'penjual',login.rekening as 'rekening',
+ barang.nama as 'nama', barang.harga as 'harga', barang.foto as 'foto', keranjang.jumlah as 'jumlah' FROM barang JOIN keranjang ON barang.idbarang = keranjang.idbarang JOIN login ON barang.login_id = login.id WHERE keranjang.id = 1
+";
 $result = mysqli_query($koneksi, $sql);
 $penjual = "";
 $jumlah;
@@ -16,7 +18,7 @@ if ($result) {
         $jumlah = $row["jumlah"] * $row["harga"];
         $total = $total + $jumlah;
         echo "" . $row["nama"]. " - harga: " . $row["harga"]. " - jumlah: " . $row["jumlah"]. " - total: " . $jumlah . "<br>";
-   
+        echo "penjual: " . $row["penjual"]. " - rekening: " . $row["rekening"]." - bank: " . $row["bank"]."<br>";
        
     }
     echo "Total pembelian Rp.".   $total  ."<br>";
