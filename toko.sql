@@ -128,3 +128,25 @@ FROM login JOIN barang ON login.id = barang.login_id JOIN keranjang ON barang.id
 ```
 ```
 ```
+
+SELECT transaksi.id_pembeli as 'pembeli', transaksi.id_penjual as 'penjual', transaksi.bukti_bayar as 'bukti' FROM transaksi WHERE penjual_id = 1
+
+
+
+
+SELECT transaksi.id_keranjang as id_keranjang,transaksi.id_penjual as id_penjual,transaksi.bukti_bayar as bukti_bayar from transaksi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
