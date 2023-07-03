@@ -63,10 +63,11 @@ $gambar = $_FILES['gambar'];
 $id = $_SESSION['id'];
 $random_name = rand(1000,1000000)."-".$_FILES['gambar']['name'];
 // Mengambil informasi file gambar
-
+$id_penjual = $_POST['id_penjual'];
 $gambar = $_FILES['gambar'];
 $gambar_nama = $random_name;
 $gambar_tmp = $gambar['tmp_name'];
+
 
 // Tentukan lokasi penyimpanan file gambar
 $lokasi_gambar = 'bukti/' . $random_name;
@@ -77,9 +78,10 @@ if (move_uploaded_file($gambar_tmp, $lokasi_gambar)) {
     $gambar_link = '' . $lokasi_gambar;
 
     // Query untuk melakukan insert data barang
-    $query = "INSERT INTO transaksi (id_keranjang,id_pembeli,bukti_bayar) VALUES ('$id_keranjang', '$id',  '$gambar_link')";
-
+    $query = "INSERT INTO `transaksi` (`id_transaksi`, `id_keranjang`, `id_pembeli`, `bukti_bayar`, `id_penjual`) VALUES (NULL,'$id_keranjang' , '$id', '$gambar_link', '$id_penjual')";
+    //echo "id keranjang = ".$id_keranjang. " id pembeli = ".$id." bukti bayar = ".$gambar_link." id penjual = ".$id_penjual."";
     // Jalankan query
+    echo $query;
     if (mysqli_query($koneksi, $query)) {
         //rubah status pembayaran di keranjang
         $query2 = "UPDATE keranjang SET terbayar = '1' WHERE id_keranjang = '$id_keranjang'";

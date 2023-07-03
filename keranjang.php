@@ -4,11 +4,11 @@
 
 require_once "koneksi.php";
 session_start();
-$sql = "SELECT login.rekening as 'rekening',keranjang.id_keranjang as 'id_keranjang',login.bank as 'bank',login.username as 'penjual',login.rekening as 'rekening',
+$sql = "SELECT login.rekening as 'rekening',keranjang.id_keranjang as 'id_keranjang',login.bank as 'bank',login.username as 'penjual',login.id as 'id_penjual',login.rekening as 'rekening',
  barang.nama as 'nama', barang.harga as 'harga', barang.foto as 'foto', keranjang.jumlah as 'jumlah' FROM barang JOIN keranjang ON barang.idbarang = keranjang.idbarang JOIN login ON barang.login_id = login.id WHERE keranjang.id = '".$_SESSION['id']."' AND keranjang.terbayar= 0
 ";
 $result = mysqli_query($koneksi, $sql);
-$penjual = "";
+$id_penjual = $row["id_penjual"];
 $jumlah;
 global $total;
 if ($result) {
@@ -23,6 +23,7 @@ if ($result) {
         echo '<form action="bayar.php" method="post">';
         echo '<input type="hidden" name="id_keranjang" value="'.$row['id_keranjang'].'">';
         echo '<input type="hidden" name="iduser" value="'.$_SESSION['id'].'">';
+        echo '<input type="hidden" name="id_penjual" value="'.$row['id_penjual'].'">';
         echo '<input type="hidden" name="jumlah" value="'.$row['jumlah'].'">';
         echo '<input type="hidden" name="total" value="'.$total.'">';
         echo '<input type="hidden" name="bank" value="'.$row['bank'].'">';

@@ -2,17 +2,25 @@
 session_start();
 
 require_once("koneksi.php");
-$sql = "SELECT login.username as 'pembeli',login.alamat as 'alamat', barang.nama as 'barang', barang.harga as 'harga', keranjang.jumlah as 'jumlah',transaksi.bukti_bayar as 'bukti' 
-FROM login JOIN barang ON login.id = barang.login_id JOIN keranjang ON barang.idbarang = keranjang.idbarang JOIN transaksi ON keranjang.id_keranjang = transaksi.id_keranjang WHERE keranjang.terbayar = 1 AND barang.login_id = '".$_SESSION['id']."'";
+$sql = "SELECT transaksi.id_pembeli as pembeli,transaksi.id_keranjang as id_keranjang,transaksi.id_penjual as id_penjual,transaksi.bukti_bayar as bukti_bayar from transaksi where id_penjual = ".$_SESSION['id']."";
+echo $sql;
+$sql_pembeli = "SELECT login.username as username,login.alamat as alamat FROM login WHERE login.id = ".$row['pembeli']."";
 $result = mysqli_query($koneksi, $sql);
-if ($result) {
+
+if (mysqli_num_rows($result) > 0) {
     // output data of each row
+    $data = array();
     while($row = mysqli_fetch_assoc($result)) {
-        echo "pembeli: " . $row["pembeli"]. " - alamat: " . $row["alamat"]. " - barang: " . $row["barang"]. " - harga: " . $row["harga"]. " - jumlah: " . $row["jumlah"]. " - bukti: " . $row["bukti"]. "<br>";
+        $data[] = $row;
+        echo "id: " . $row["id_keranjang"]. " - pembeli: " . $row["pembeli"]. " " . $row["bukti_bayar"]. "<br>";
     }
+    echo json_encode($data);
 } else {
     echo "0 results";
 }
 
 
+
+
 ?>
+

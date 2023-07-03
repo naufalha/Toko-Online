@@ -122,16 +122,19 @@ mysqli_close($koneksi);*/
     if ($result) {
       // Output data of each row
       while ($row = mysqli_fetch_assoc($result)) {
-        echo '<div class="col">';
-        echo '<div class="card" style="width: 18rem;">';
+        echo '<div class="col ">';
+        echo '<div class="card " style="width: 18rem;">';
         echo '<img width="200" height="150" src="' . $row["foto"] . '" class="card-img-top" alt="...">';
         echo '<div class="card-body">';
         echo '<h5 class="card-title">' . $row["nama"] . '</h5>';
         echo '<p class="card-text">Harga: ' . $row["harga"] . '</p>';
         echo '<a href="barang.php?idbarang=' . $row['idbarang'] . '" class="btn btn-primary">Beli</a>';
+        echo '<br>';
         echo '</div>';
         echo '</div>';
         echo '</div>';
+        echo '<br>';
+        echo '<br>';  
       }
     } else {
       echo "0 results";
