@@ -103,7 +103,8 @@ if ($result) {
     // output data of each row
     while($row = mysqli_fetch_assoc($result)) {
         echo "<div class='card'>";
-        echo "<img src=".$row["foto"]."><br>";
+
+        echo '<img width="200" height="150" src="' . $row["foto"] . '" class="card-img-top" alt="...">';
         echo "<h3>id barang: " . $row["idbarang"]. "</h3>";
         echo "<p>Name: " . $row["nama"]. "</p>";
         echo "<p>" . $row["harga"]. "</p>";

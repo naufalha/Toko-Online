@@ -49,9 +49,9 @@ $result = mysqli_query($koneksi, $sql);
 
 if (isset($_POST['submit'])) {
     $insertkeranjang = "INSERT INTO keranjang (id, idbarang, jumlah) VALUES ('".$_POST['iduser']."', '".$_POST['idbarang']."', '".$_POST['jumlah']."')";
-    $kontol = mysqli_query($koneksi, $insertkeranjang);
+    $result = mysqli_query($koneksi, $insertkeranjang);
     echo $insertkeranjang;
-    if ($kontol) {
+    if ($result) {
         echo "New record created successfully";
     } else {
         echo "Error: " . $insertkeranjang . "<br>" . mysqli_error($koneksi);
