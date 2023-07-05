@@ -19,17 +19,17 @@
         <form method="POST" action="register.php">
             <div class="form-group">
                 <label for="username">Username:</label>
-                <input type="text" id="username" name="username" class="form-control" required>
+                <input type="text" id="username" name="username" class="form-control" placeholder="Masukkan username" required>
             </div>
 
             <div class="form-group">
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" class="form-control" required>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Masukkan password" required>
             </div>
 
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" class="form-control" required>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Masukkan Email" required>
             </div>
 
             <button type="submit" name="register" class="btn btn-primary">Register</button>
