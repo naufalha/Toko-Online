@@ -55,25 +55,25 @@
     <h2>Registrasi Pengguna</h2>
     <form method="POST" action="register.php">
         <label for="nama">Nama:</label>
-        <input type="text" id="nama" name="nama" required>
+        <input type="text" id="nama" name="nama" placeholder="Masukkan Nama" required>
 
         <label for="pass">Password:</label>
-        <input type="pass" id="pass" name="pass" required>
+        <input type="pass" id="pass" name="pass" placeholder="Masukkan Password" required>
 
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
+        <input type="email" id="email" name="email" placeholder="Masukkan Email" required>
 
         <label for="hp">No telepon:</label>
-        <input type="number" id="hp" name="hp" required>
+        <input type="number" id="hp" name="hp" placeholder="Masukkan Nomer Handphone" required>
 
         <label for="alamat">Alamat:</label>
-        <textarea id="alamat" name="alamat" required></textarea>
+        <textarea id="alamat" name="alamat" placeholder="Masukkan Alamat" required></textarea>
 
         <label for="bank">Bank</label>
-        <textarea id="bank" name="bank" required></textarea>
+        <textarea id="bank" name="bank" placeholder="Masukkan Bank" required></textarea>
 
         <label for="rekening">Rekening</label>
-        <textarea id="rekening" name="rekening" required></textarea>
+        <textarea id="rekening" name="rekening" placeholder="Masukkan Rekening" required></textarea>
 
         <input type="submit" name="register" value="Register">
     </form>
