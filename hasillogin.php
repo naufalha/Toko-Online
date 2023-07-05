@@ -19,6 +19,8 @@
             <img src="logo.png" alt="Tokopedia Logo">
           </div>
         </nav>
+        <a class="lomgin2" href="jual.php">jual barang</a>
+        <a class="lomgin2" href="user_barang.php">barang saya</a>
         <a class="lomgin2" href="penjualan.php">Barang Terjual</a> 
         <a class="lomgin2" href="logout.php">Logout</a> <a class="lomgin2" href="register.php">Register</a>
         <a class="lomgin2" href="keranjang.php">keranjang</a>
@@ -32,7 +34,6 @@
     echo "Anda Berhasil Login Sebagai ".$_SESSION['username']." Dan Anda Terdaftar Sebagai ".$_SESSION['id'],$_SESSION['kategori'];
 ?>
 <br>
-<h3><a href="jual.php">jual barang</a> <a href="user_barang.php">barang saya</a></h3>
 
 
 <?php
