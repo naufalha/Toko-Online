@@ -111,8 +111,10 @@
                 </div>
             </div>
             <div class="button-container">
+                
                 <input type="submit" value="Upload">
             </div>
+            <a href="home_annonymous.php">Kembali</a>
         </div>
     </form>
 </body>
