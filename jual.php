@@ -78,13 +78,21 @@
     </style>
 </head>
 <body>
-    <header>
+<script src="js/bootstrap.min.js"></script>
+    <header >
         <nav class="container-fluid">
-            <div class="logo">
-                <img src="logo.png" alt="Tokopedia Logo">
-            </div>
+          <div class="logo">
+            <img src="logo.png" alt="Tokopedia Logo">
+          </div>
         </nav>
-    </header>
+        <a class="lomgin2" href="hasillogin.php">Home</a> 
+        <a class="lomgin2" href="jual.php">jual barang</a>
+        <a class="lomgin2" href="user_barang.php">barang saya</a>
+        <a class="lomgin2" href="penjualan.php">Barang Terjual</a> 
+        <a class="lomgin2" href="logout.php">Logout</a> <a class="lomgin2" href="register.php">Register</a>
+        <a class="lomgin2" href="keranjang.php">keranjang</a>
+      </header>
+
     <form action="insert_jual.php" method="POST" enctype="multipart/form-data">
         <div class="container">
             <h2>Form Upload Barang</h2>
