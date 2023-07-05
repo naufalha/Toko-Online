@@ -129,7 +129,11 @@ if(isset($_POST['delete'])){
     $sql = "DELETE FROM barang WHERE idbarang = '".$_POST['record_id']."'";
     $result = mysqli_query($koneksi, $sql);
     if ($result) {
-        echo "Record deleted successfully";
+        header("Location: ".$_SERVER['PHP_SELF']);
+        echo "<div class='alert alert-success' role='alert'>Record deleted successfully</div>";
+        
+
+    
     } else {
         echo "Error deleting record: " . mysqli_error($koneksi);
     }
