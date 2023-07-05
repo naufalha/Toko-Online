@@ -80,12 +80,12 @@
             <img src="logo.png" alt="Tokopedia Logo">
           </div>
         </nav>
-        <a class="lomgin2" href="hasillogin.php">Home</a> 
-        <a class="lomgin2" href="jual.php">jual barang</a>
-        <a class="lomgin2" href="user_barang.php">barang saya</a>
-        <a class="lomgin2" href="penjualan.php">Barang Terjual</a> 
-        <a class="lomgin2" href="logout.php">Logout</a> <a class="lomgin2" href="register.php">Register</a>
-        <a class="lomgin2" href="keranjang.php">keranjang</a>
+            <a class="lomgin2" href="hasillogin.php">Home</a> 
+            <a class="lomgin2" href="jual.php">Jual Barang</a>
+            <a class="lomgin2" href="user_barang.php">Barang Saya</a>
+            <a class="lomgin2" href="penjualan.php">Barang Terjual</a> 
+            <a class="lomgin2" href="keranjang.php">Keranjang</a>
+            <a class="lomgin2"" href="logout.php">Logout</a> 
       </header>
 
 <?php
