@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="css/bootstrap.min.css">
+<style>
+    .footer-logo {
+    width: 100px; /* Adjust the width as needed */
+    height: 50px; /* Adjust the height as needed */
+    margin-left: auto; /* Move the logo to the right */
+  }
+  
+</style>
 </head>
 <body>
 <script src="js/bootstrap.min.js"></script>
@@ -79,16 +87,16 @@ echo '<script>alert("Anda Berhasil Login Sebagai '.$username.' Dan Anda Terdafta
     </div>
 </div>
 
-<footer class="footer bg-dark text-light">
-    <div class="container">
-    <p>Hak Cipta &copy; 2023 Namfra</p>
-      <ul class="footer-links">
-        <li><a href="#">Tentang Kami</a></li>
-        <li><a href="#">Syarat dan Ketentuan</a></li>
-        <li><a href="#">Kebijakan Privasi</a></li>
-      </ul>
+<footer class="footer bg-primary text-white">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <p>&copy; 2023 Toko-Online. Hak Cipta Dilindungi</p>
+        <img src="logo.png" alt="Toko-Online Logo" class="footer-logo">
+      </div>
     </div>
-  </footer>
+  </div>
+</footer>
 
 </body>
 </html>
