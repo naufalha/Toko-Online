@@ -55,7 +55,7 @@ if (mysqli_num_rows($result) > 0) {
 
         echo "<div class='row mt-4 mb-4 --bs-info lomgin2' <div style=''>";
         echo "<div class='col-sm-3 mt-4 mb-4'>";
-        echo "<img  class='img-fluid rounded'  src=".$row["bukti_bayar"].  ">";
+        echo "<img  class='img-fluid rounded card-img-top'  src=".$row["bukti_bayar"].  ">";
         echo "</div>";
         echo "<div class='col-sm-3'>";
             echo "<div class='row mt-4'>";

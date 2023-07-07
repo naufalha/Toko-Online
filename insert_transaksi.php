@@ -81,7 +81,7 @@ if (move_uploaded_file($gambar_tmp, $lokasi_gambar)) {
     $query = "INSERT INTO `transaksi` (`id_transaksi`, `id_keranjang`, `id_pembeli`, `bukti_bayar`, `id_penjual`) VALUES (NULL,'$id_keranjang' , '$id', '$gambar_link', '$id_penjual')";
     //echo "id keranjang = ".$id_keranjang. " id pembeli = ".$id." bukti bayar = ".$gambar_link." id penjual = ".$id_penjual."";
     // Jalankan query
-    echo $query;
+    
     if (mysqli_query($koneksi, $query)) {
         //rubah status pembayaran di keranjang
         $query2 = "UPDATE keranjang SET terbayar = '1' WHERE id_keranjang = '$id_keranjang'";

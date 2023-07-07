@@ -52,9 +52,9 @@ $kategori = $_SESSION['kategori'];
 
         if (isset($_POST['submit'])) {
             $insertkeranjang = "INSERT INTO keranjang (id, idbarang, jumlah) VALUES ('".$_POST['iduser']."', '".$_POST['idbarang']."', '".$_POST['jumlah']."')";
-            $result = mysqli_query($koneksi, $insertkeranjang);
+            $inserted = mysqli_query($koneksi, $insertkeranjang);
             
-            if ($result) {
+            if ($inserted) {
                 echo "<script>alert('Berhasil ditambahkan ke keranjang')</script>";
             } else {
                 echo "Error: " . $insertkeranjang . "<br>" . mysqli_error($koneksi);
