@@ -61,7 +61,7 @@ require_once "koneksi.php";
 $id_keranjang = $_POST['id_keranjang'];
 $gambar = $_FILES['gambar'];
 $id = $_SESSION['id'];
-$random_name = rand(1000,1000000)."-".$_FILES['gambar']['name'];
+$random_name = rand(1000,100000000)."-bukti";
 // Mengambil informasi file gambar
 $id_penjual = $_POST['id_penjual'];
 $gambar = $_FILES['gambar'];
