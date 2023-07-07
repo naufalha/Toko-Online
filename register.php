@@ -9,17 +9,24 @@
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
+            background-color: #f2f2f2;
         }
         h2 {
             text-align: center;
+            margin-bottom: 30px;
         }
         form {
-            width: 400px;
+            max-width: 400px;
             margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
         label {
             display: block;
             margin-top: 10px;
+            font-weight: bold;
         }
         input[type="text"],
         input[type="password"],
@@ -27,19 +34,24 @@
         input[type="number"],
         textarea {
             width: 100%;
-            padding: 5px;
+            padding: 10px;
             margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
         }
         input[type="submit"] {
             padding: 10px 20px;
             background-color: #1E90FF;
             color: white;
             border: none;
+            border-radius: 4px;
             cursor: pointer;
         }
         input[type="submit"]:hover {
             background-color: #483D8B;
         }
+  
     </style>
 </head>
 <body>
