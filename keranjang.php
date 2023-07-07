@@ -73,6 +73,8 @@
     <div class="container">
     <div class="row">
         <?php
+        error_reporting(E_ALL & ~E_WARNING);
+
         require_once "koneksi.php";
         session_start();
         $sql = "SELECT login.rekening as 'rekening',keranjang.id_keranjang as 'id_keranjang',login.bank as 'bank',login.username as 'penjual',login.id as 'id_penjual',login.rekening as 'rekening',

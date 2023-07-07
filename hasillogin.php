@@ -30,17 +30,21 @@
 </header>
 
 <?php
+error_reporting(E_ALL & ~E_WARNING);
+
 session_start();
 $username = $_SESSION['username'];
 $id = $_SESSION['id'];
 $kategori = $_SESSION['kategori'];
-echo '<script>alert("Anda Berhasil Login Sebagai '.$username.' Dan Anda Terdaftar Sebagai '.$id.' '.$kategori.'");</script>';
+
 ?>
 <br>
 
 <div class="container">
     <div class="row">
         <?php
+       error_reporting(E_ALL & ~E_WARNING);
+
         require_once("koneksi.php");
 
         $sql = "SELECT * FROM barang WHERE login_id != '".$_SESSION['id']."'";
@@ -49,9 +53,9 @@ echo '<script>alert("Anda Berhasil Login Sebagai '.$username.' Dan Anda Terdafta
         if (isset($_POST['submit'])) {
             $insertkeranjang = "INSERT INTO keranjang (id, idbarang, jumlah) VALUES ('".$_POST['iduser']."', '".$_POST['idbarang']."', '".$_POST['jumlah']."')";
             $result = mysqli_query($koneksi, $insertkeranjang);
-            echo $insertkeranjang;
+            
             if ($result) {
-                echo "New record created successfully";
+                echo "<script>alert('Berhasil ditambahkan ke keranjang')</script>";
             } else {
                 echo "Error: " . $insertkeranjang . "<br>" . mysqli_error($koneksi);
             }
