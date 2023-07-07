@@ -16,11 +16,12 @@
             <a class="lomgin2" href="user_barang.php">Barang Saya</a>
             <a class="lomgin2" href="penjualan.php">Barang Terjual</a> 
             <a class="lomgin2" href="keranjang.php">Keranjang</a>
-            <a class="lomgin2"" href="logout.php">Logout</a> 
+            <a class="lomgin2" href="logout.php">Logout</a> 
         </div>
     </header>
 
     <div class="container">
+    <div class="row">
         <?php
         require_once "koneksi.php";
         session_start();
@@ -33,8 +34,9 @@
         if ($result) {
             // output data of each row
             while($row = mysqli_fetch_assoc($result)) {
+                echo '<div class="col-sm-5 col-md-6">';
                 echo '<div class="item">';
-                echo '<img src="' . $row["foto"] . '" class="item-image" alt="Product Image">';
+                echo '<img width="400" height="200" src="' . $row["foto"] . '" class="item-image" alt="Product Image">';
                 echo '<div class="item-details">';
                 echo '<p class="item-name">' . $row["nama"] . '</p>';
                 echo '<p class="item-price">Harga: Rp ' . $row["harga"] . '</p>';
@@ -54,14 +56,18 @@
                 echo '</form>';
                 echo '</div>'; // end of item-details
                 echo '</div>'; // end of item
+                echo '</div>'; // end of col
             }
+            echo '<div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">';
             echo '<p class="total-pembelian">Total Pembelian: Rp ' . $total . '</p>';
+            echo '</div>'; // end of col
         } else {
             echo "0 results";
         }
         mysqli_close($koneksi);
         ?>
-    </div> <!-- end of container -->
+    </div> <!-- end of row -->
+</div> <!-- end of container -->
 
     <br>
     <a href="bayar.php" class="btn-bayar">Bayar</a>
