@@ -3,6 +3,56 @@
 <head>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+    .container {
+        margin-top: 20px;
+    }
+
+    .item {
+        background-color: #f5f5f5;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .item-image {
+        width: 400px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+
+    .item-details {
+        margin-top: 10px;
+    }
+
+    .item-name {
+        font-weight: bold;
+    }
+
+    .item-price,
+    .item-quantity,
+    .item-total,
+    .item-seller,
+    .item-bank {
+        margin-bottom: 5px;
+    }
+
+    .btn-bayar {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .total-pembelian {
+        font-weight: bold;
+        margin-top: 20px;
+    }
+</style>
 </head>
 <body>
     <header>
