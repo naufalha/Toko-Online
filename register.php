@@ -5,27 +5,21 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <style>
-      body {
+        
+        body {
             font-family: Arial, sans-serif;
             margin: 20px;
-            background-color: #f2f2f2;
         }
         h2 {
             text-align: center;
-            margin-bottom: 30px;
         }
         form {
-            max-width: 400px;
+            width: 400px;
             margin: 0 auto;
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
         label {
             display: block;
             margin-top: 10px;
-            font-weight: bold;
         }
         input[type="text"],
         input[type="password"],
@@ -33,47 +27,18 @@
         input[type="number"],
         textarea {
             width: 100%;
-            padding: 10px;
+            padding: 5px;
             margin-top: 5px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
         }
         input[type="submit"] {
             padding: 10px 20px;
             background-color: #1E90FF;
             color: white;
             border: none;
-            border-radius: 4px;
             cursor: pointer;
         }
         input[type="submit"]:hover {
             background-color: #483D8B;
-        }
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            padding: 10px;
-            background-color: #f2f2f2;
-        }
-        footer p {
-            margin: 0;
-        }
-        footer ul {
-            list-style: none;
-            padding: 0;
-            margin-top: 10px;
-        }
-        footer ul li {
-            display: inline;
-        }
-        footer ul li a {
-            color: #555;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-        footer ul li a:hover {
-            color: #1E90FF;
         }
     </style>
 </head>
