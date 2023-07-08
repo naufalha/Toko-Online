@@ -60,6 +60,7 @@
             echo "<p><strong>Name:</strong> " . $row["nama"]. "</p>";
             echo "<p><strong>Harga:</strong> Rp." . $row["harga"]. "</p>";
             echo "<p><strong>Deskripsi:</strong> " . $row["deskripsi"]. "</p>";
+            echo "<a href='hasillogin.php' class='buy-button'>Kembali</a>";
             echo "</div>"; // end of product-details
             echo "</div>"; // end of product-container
         }
