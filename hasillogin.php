@@ -70,7 +70,7 @@ $kategori = $_SESSION['kategori'];
                 echo '<div class="card-body">';
                 echo '<h5 class="card-title">' . $row["nama"] . '</h5>';
                 echo '<p class="card-text">Harga: ' . $row["harga"] . '</p>';
-                echo '<a href="barang.php?idbarang=' . $row['idbarang'] . '" class="btn btn-primary">Beli</a>';
+                echo '<a href="barang.php?idbarang=' . $row['idbarang'] . '" class="btn btn-primary">Deskripsi</a>';
                 echo '<div class="container mt-3">';
                 echo '<form action="hasillogin.php" method="post">';
                 echo '<input type="hidden" name="idbarang" value="'.$row['idbarang'].'">';

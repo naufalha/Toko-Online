@@ -5,6 +5,7 @@
         border-radius: 5px;
         padding: 10px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        background-color: #f9f9f9;
     }
 
     .product-image {
@@ -18,6 +19,11 @@
     .product-details {
         font-size: 16px;
         line-height: 1.5;
+        color: #333;
+    }
+
+    .product-details p {
+        margin-bottom: 5px;
     }
 
     .buy-button {
@@ -29,6 +35,11 @@
         border-radius: 5px;
         text-decoration: none;
         margin-top: 10px;
+        transition: background-color 0.3s;
+    }
+
+    .buy-button:hover {
+        background-color: #0056b3;
     }
 </style>
 
@@ -45,9 +56,11 @@
             echo "<div class='product-container'>";
             echo "<img src=".$row["foto"]." class='product-image'><br>";
             echo "<div class='product-details'>";
-            echo "id: " . $row["login_id"]. " - Name: " . $row["nama"]. " harga Rp." . $row["harga"]. "<br>";
-            echo "deskripsi: " . $row["deskripsi"]. "<br>";
-            echo "<a href='tambahkeranjang.php?idbarang=".$row['idbarang']."' class='buy-button'>Beli</a> <br>";
+            echo "<p><strong>ID:</strong> " . $row["login_id"]. "</p>";
+            echo "<p><strong>Name:</strong> " . $row["nama"]. "</p>";
+            echo "<p><strong>Harga:</strong> Rp." . $row["harga"]. "</p>";
+            echo "<p><strong>Deskripsi:</strong> " . $row["deskripsi"]. "</p>";
+            echo "<a href='tambahkeranjang.php?idbarang=".$row['idbarang']."' class='buy-button'>Beli</a>";
             echo "</div>"; // end of product-details
             echo "</div>"; // end of product-container
         }

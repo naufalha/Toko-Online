@@ -89,7 +89,7 @@ if (move_uploaded_file($gambar_tmp, $lokasi_gambar)) {
         mysqli_query($koneksi, $query2);
         // Tampilkan pesan sukses
         echo '<div class="message success">';
-        echo "<h2>Data barang berhasil diupload.</h2>";
+        echo "<h2>Transaksi Anda Berhasil.</h2>";
         echo '<a href="index.php" class="btn-kembali">Kembali ke Halaman Home</a>';
         echo '</div>';
     } else {
