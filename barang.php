@@ -56,7 +56,7 @@
             echo "<div class='product-container'>";
             echo "<img src=".$row["foto"]." class='product-image'><br>";
             echo "<div class='product-details'>";
-            echo "<p><strong>ID:</strong> " . $row["login_id"]. "</p>";
+       
             echo "<p><strong>Name:</strong> " . $row["nama"]. "</p>";
             echo "<p><strong>Harga:</strong> Rp." . $row["harga"]. "</p>";
             echo "<p><strong>Deskripsi:</strong> " . $row["deskripsi"]. "</p>";

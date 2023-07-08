@@ -63,7 +63,7 @@ $harga = $_POST['harga'];
 $deskripsi = $_POST['deskripsi'];
 $gambar = $_FILES['gambar'];
 $id = $_SESSION['id'];
-$random_name = rand(1000,1000000)."-".$_FILES['gambar']['name'];
+$random_name = rand(1000,1000000)."-barang";
 // Mengambil informasi file gambar
 
 $gambar = $_FILES['gambar'];

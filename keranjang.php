@@ -80,13 +80,11 @@
         $sql = "SELECT login.rekening as 'rekening',keranjang.id_keranjang as 'id_keranjang',login.bank as 'bank',login.username as 'penjual',barang.login_id as 'id_penjual',login.rekening as 'rekening',
         barang.nama as 'nama', barang.harga as 'harga', barang.foto as 'foto', keranjang.jumlah as 'jumlah' FROM barang JOIN keranjang ON barang.idbarang = keranjang.idbarang JOIN login ON barang.login_id = login.id WHERE keranjang.id = '".$_SESSION['id']."' AND keranjang.terbayar= 0";
         $result = mysqli_query($koneksi, $sql);
-        echo $sql;
         $jumlah;
         
         if ($result) {
             // output data of each row
             while($row = mysqli_fetch_assoc($result)) {
-                echo "<h1>id ".$id_penjual."</h1>";
                 echo '<div class="col-sm-5 col-md-6">';
                 echo '<div class="item">';
                 echo '<img width="400" height="200" src="' . $row["foto"] . '" class="item-image" alt="Product Image">';
@@ -111,7 +109,7 @@
                 echo '</div>'; // end of item-details
                 echo '</div>'; // end of item
                 echo '</div>'; // end of col
-                echo $row["id_penjual"];
+               
             }
             echo '<div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">';
             
