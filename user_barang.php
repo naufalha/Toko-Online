@@ -148,6 +148,7 @@ if(isset($_POST['update'])){
     $result = mysqli_query($koneksi, $sql);
     if ($result) {
         echo "Record updated successfully";
+        header("Location: ".$_SERVER['PHP_SELF']);
     } else {
         echo "Error updating record: " . mysqli_error($koneksi);
     }
