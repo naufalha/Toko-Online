@@ -40,7 +40,20 @@
     </style>
 </head>
 <body>
-
+<header>
+        <nav class="container-fluid">
+            <div class="logo">
+                <img src="logo.png" alt="Tokopedia Logo">
+            </div>
+        </nav>
+            <a class="lomgin2" href="hasillogin.php">Home</a> 
+            <a class="lomgin2" href="jual.php">Jual Barang</a>
+            <a class="lomgin2" href="user_barang.php">Barang Saya</a>
+            <a class="lomgin2" href="penjualan.php">Barang Terjual</a> 
+            <a class="lomgin2" href="keranjang.php">Keranjang</a>
+            <a class="lomgin2" href="logout.php">Logout</a> 
+        </div>
+    </header>
 <?php
 require_once("koneksi.php");
 session_start();
@@ -55,7 +68,7 @@ $penjual = $_POST['penjual'];
 
 $sql = "SELECT DISTINCT login.username as 'penjual' FROM login JOIN keranjang ON login.id = keranjang.id WHERE keranjang.id = '".$id_penjual."'";
 $result = mysqli_query($koneksi, $sql);
-echo $sql;
+//echo $sql;
 if ($result) {
     // output data of each row
     while($row = mysqli_fetch_assoc($result)) {
