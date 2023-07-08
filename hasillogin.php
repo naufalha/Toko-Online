@@ -69,7 +69,7 @@ $kategori = $_SESSION['kategori'];
                 echo '<img width="200" height="150" src="' . $row["foto"] . '" class="card-img-top" alt="...">';
                 echo '<div class="card-body">';
                 echo '<h5 class="card-title">' . $row["nama"] . '</h5>';
-                echo '<p class="card-text">Harga: ' . $row["harga"] . '</p>';
+                echo '<p class="card-text">Rp.' . $row["harga"] . '</p>';
                 echo '<a href="barang.php?idbarang=' . $row['idbarang'] . '" class="btn btn-primary">Deskripsi</a>';
                 echo '<div class="container mt-3">';
                 echo '<form action="hasillogin.php" method="post">';

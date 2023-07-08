@@ -105,10 +105,10 @@ if ($result) {
         echo "<div class='card'>";
 
         echo '<img width="200" height="150" src="' . $row["foto"] . '" class="card-img-top" alt="...">';
-        echo "<h3>id barang: " . $row["idbarang"]. "</h3>";
-        echo "<p>Name: " . $row["nama"]. "</p>";
-        echo "<p>" . $row["harga"]. "</p>";
-        echo "<a href='barang.php?idbarang=".$row['idbarang']."'>Beli</a> <br>";
+        //echo "<h3>id barang: " . $row["idbarang"]. "</h3>";
+        echo "<h3>Name: " . $row["nama"]. "</h3>";
+        echo "<p>Rp." . $row["harga"]. "</p>";
+        echo "<a href='barang.php?idbarang=".$row['idbarang']."'>Deskripsi</a> <br>";
         echo "<form method='post'>";
         echo "<input type='hidden' name='record_id' value='".$row['idbarang']."'>";
         echo "<input type='submit' name='delete' value='Delete'>";
