@@ -125,6 +125,6 @@
 </div> <!-- end of container -->
 
     <br>
-    <a href="bayar.php" class="btn-bayar">Bayar</a>
+
 </body>
 </html>
