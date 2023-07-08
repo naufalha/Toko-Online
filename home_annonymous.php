@@ -99,7 +99,7 @@ function showSlides() {
         echo '<div class="card-body">';
         echo '<h5 class="card-title">' . $row["nama"] . '</h5>';
         echo '<p class="card-text">Harga: ' . $row["harga"] . '</p>';
-        echo '<a href="barang.php?idbarang=' . $row['idbarang'] . '" class="btn btn-primary">Beli</a>';
+        echo '<a href="barang.php?idbarang=' . $row['idbarang'] . '" class="btn btn-primary">Deskripsi</a>';
         echo '</div>';
         echo '</div>';
         echo '</div>';
