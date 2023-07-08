@@ -116,6 +116,7 @@ if ($result) {
         echo "<br>";
         echo "<form method='post'>";
         echo "<input type=text name='harga' value='".$row['harga']."'>";
+        echo "<input type='hidden' name='record_id' value='".$row['idbarang']."'>;";
         echo "<input type='submit' name='update' value='Update'>";
         echo "</form>";
         echo "<br>";
@@ -126,9 +127,12 @@ if ($result) {
 }
 
 if(isset($_POST['delete'])){
-    $sql = "DELETE FROM barang WHERE idbarang = '".$_POST['record_id']."'";
-    $result = mysqli_query($koneksi, $sql);
-    if ($result) {
+    $sql1 = "DELETE FROM keranjang WHERE idbarang = '".$_POST['record_id']."'";
+    $sql2 = "DELETE FROM barang WHERE idbarang = '".$_POST['record_id']."'";
+    $sql3 = "DELETE FROM transaksi WHERE idbarang = '".$_POST['record_id']."'";
+    $result = mysqli_query($koneksi, $sql1);
+    $result2 = mysqli_query($koneksi, $sql2);
+    if ($result2) {
         header("Location: ".$_SERVER['PHP_SELF']);
         echo "<div class='alert alert-success' role='alert'>Record deleted successfully</div>";
         
