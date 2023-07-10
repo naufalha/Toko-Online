@@ -8,5 +8,6 @@ Kelompok 4: Toko Online
 4. Naufal Hanief Mafaza(L200210135) (php engginer)
 
 untuk menjalankankan web gunakan database sql di /database backup/toko final.sql
-
+dengan menggunakan user root password "" di localhost
+atau anda bisa menggunakan database lain dengan mengedit koneksi.php
 
